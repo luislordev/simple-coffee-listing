@@ -1,9 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '@/layouts/Layout.astro';
+import TextHeader from '@/components/TextHeader.astro';
+import Vector from '@/icons/Vector.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>Hello World 👋🏼</main>
+<Layout title="Coffee Listing - Luislordev">
+  <main
+    class="absolute bg-gray-dark rounded-lg left-1/2 transform -translate-x-1/2 top-[56%] flex flex-col items-center w-fit py-5 px-10 sm:px-20 lg:px-32 overflow-hidden"
+  >
+    <Vector class="absolute left-[49%] z-0" />
+    <TextHeader />
+  </main>
 </Layout>
-
-<style></style>
