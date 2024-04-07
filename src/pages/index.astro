@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import TextHeader from '@/components/TextHeader.astro';
+import { CoffeeListContainer } from '@/components/CoffeeListContainer';
 import Vector from '@/icons/Vector.astro';
 ---
 
@@ -10,5 +11,6 @@ import Vector from '@/icons/Vector.astro';
   >
     <Vector class="absolute left-[49%] z-0" />
     <TextHeader />
+    <CoffeeListContainer client:visible />
   </main>
 </Layout>
