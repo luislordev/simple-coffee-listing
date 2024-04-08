@@ -1,8 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import type { Coffees } from '@/env'
+
 import { getCoffees } from '@/services/getCoffee'
+
 import { CustomButton } from '@/components/CustomButton'
+import { Card } from '@/components/Card'
 
 export const CoffeeListContainer = () => {
   const [showAllProducts, setshowAllProducts] = useState(true)
@@ -10,7 +13,7 @@ export const CoffeeListContainer = () => {
   const filteredCoffees: Coffees[] = useMemo(() =>{
     return showAllProducts ? coffees: coffees.filter(coffee => coffee.available ===true)
   }, [coffees, showAllProducts])
-  
+
   useEffect(() => {
     getCoffees().then((data) => setCoffees(data))
   }, [])
@@ -24,17 +27,14 @@ export const CoffeeListContainer = () => {
 
   return (
     <section className='flex flex-col justify-center items-center'>
-      <div className='flex gap-4'>
+      <div className='flex gap-4 mb-8'>
         <CustomButton active={showAllProducts} onClick={handleAll}>All Products</CustomButton>
         <CustomButton active={!showAllProducts} onClick={handleAvailable}>Available Now</CustomButton>
       </div>
-      <div>{
+      <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8'>{
         filteredCoffees ? (
           filteredCoffees.map(coffee => (
-            <div>
-              <h1>{coffee.name}</h1>
-              <img className='h-20 w-32' src={coffee.image} />
-            </div>
+            <Card coffee={coffee} key={coffee.id} />
           )))
           : (<p>Loading...</p>)
       }</div>

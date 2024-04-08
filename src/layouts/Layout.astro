@@ -17,7 +17,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="relative">
-    <div class="h-52 lg:h-[300px] select-none">
+    <div class="h-52 lg:h-[300px] select-none -z-10">
       <img
         src="/images/bg-cafe.jpg"
         alt="bg-cafe"
@@ -25,9 +25,14 @@ const { title } = Astro.props;
       />
     </div>
     <slot />
+    <footer class="h-1.5"></footer>
   </body>
 </html>
-<style></style>
+<style>
+  .footer {
+    height: 70px;
+  }
+</style>
 <style is:global>
   :root {
     font-family: 'DM-Sans', system-ui, sans-serif;

@@ -2,14 +2,14 @@
 import Layout from '@/layouts/Layout.astro';
 import TextHeader from '@/components/TextHeader.astro';
 import { CoffeeListContainer } from '@/components/CoffeeListContainer';
-import Vector from '@/icons/Vector.astro';
+import { Vector } from '@/icons/Vector';
 ---
 
 <Layout title="Coffee Listing - Luislordev">
   <main
-    class="bg-gray-dark mx-32 md:mx-28 lg:mx-20 rounded-lg -mt-28 mb-28 z-10 relative flex flex-col items-center overflow-hidden py-9"
+    class="bg-gray-dark sm:mx-32 md:mx-28 lg:mx-20 rounded-lg -mt-28 mb-28 z-10 relative flex flex-col items-center overflow-hidden py-9"
   >
-    <Vector class="absolute left-[49%] z-0" />
+    <Vector classStyles="absolute left-[49%] z-0" />
     <TextHeader />
     <CoffeeListContainer client:visible />
   </main>
